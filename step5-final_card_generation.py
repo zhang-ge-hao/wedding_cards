@@ -116,9 +116,15 @@ StabilityAI），以您的花名或者姓名为灵感，生
     text_bbox = draw.textbbox((726, 1754), title_text, font=font)
     
     # 根据文本边界框信息调整文本位置
-    text_position = (1754, 1754)
-    
+    text_position = (1754, 1754 + 10 + 30)
     draw.text(text_position, title_text, font=font, fill=font_color)
+
+    # 工位
+    font_path = "DreamHanSerifCN-W20.ttf"
+    font = ImageFont.truetype(font_path, size=30)
+    draw = ImageDraw.Draw(background)        
+    text_position = (1754 + 40, 1754 + 10)
+    draw.text(text_position, data["办公地点"], font=font, fill=font_color)
 
     # 保存最终图片
     background.save(front_output_path)
