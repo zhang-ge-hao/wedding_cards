@@ -8,7 +8,9 @@ class ImagePickerApp:
         self.root = root
         self.root.title("Image Picker")
         self.folder_path = folder_path
-        self.subfolders = [f for f in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, f))]
+        self.subfolders = [f for f in os.listdir(folder_path) 
+                           if os.path.isdir(os.path.join(folder_path, f)) 
+                           and not os.path.exists(os.path.join(folder_path, f, "picked.png"))]
         self.current_folder_index = 0
         self.current_image_index = 0
 
